@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lista de Exercícios - DOM e Validação</title>
+        <style>
+        body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
+        h1 { text-align: center; }
+        .exercicio { border: 1px solid #ccc; border-radius: 8px; padding: 15px; margin-bottom: 20px; background-color: #f9f9f9; }
+        .exercicio h3 { margin-top: 0; color: #333; }
+        .hidden { display: none; }
+        .error { color: red; font-size: 0.9em; margin-top: 5px; }
+        .success { color: green; font-weight: bold; margin-top: 5px; }
+        input { margin-bottom: 10px; padding: 5px; width: 100%; box-sizing: border-box; }
+        button { padding: 8px 12px; cursor: pointer; background-color: #007BFF; color: white; border: none; border-radius: 4px; }
+        button:hover { background-color: #0056b3; }
+        img { max-width: 100%; height: auto; margin-top: 10px; border-radius: 4px; }
+    </style>
+    </head>
+    <body>
+
+        <h1>Resolução dos Exercícios</h1>
+
+        <div class="exercicio">
+            <h3>Exercício 1 – Fechar Aviso</h3>
+            <p id="aviso-ex1">Manutenção programada para domingo.</p>
+            <button
+                onclick="document.getElementById('aviso-ex1').classList.add('hidden')">Fechar</button>
+        </div>
+
+        <div class="exercicio">
+            <h3>Exercício 2 – Revelar Segredo</h3>
+            <h4 id="segredo-ex2" class="hidden">Parabéns, você encontrou o
+                segredo!</h4>
+            <button
+                onclick="document.getElementById('segredo-ex2').classList.remove('hidden')">Revelar</button>
+        </div>
+
+        <div class="exercicio">
+            <h3>Exercício 3 – Foto do Produto</h3>
+            <button
+                onclick="document.getElementById('img-ex3').classList.remove('hidden')">Visualizar
+                Produto</button>
+            <br>
+            <img id="img-ex3" class="hidden"
+                src="https://via.placeholder.com/300x150?text=Produto+Exemplo"
+                alt="Produto">
+        </div>
+
+        <div class="exercicio">
+            <h3>Exercício 4 – Calculadora de Soma</h3>
+            <input type="number" id="num1-ex4" placeholder="Número 1">
+            <input type="number" id="num2-ex4" placeholder="Número 2">
+            <button onclick="somarEx4()">Somar</button>
+            <p id="msg-ex4"></p>
+        </div>
+
+        <div class="exercicio">
+            <h3>Exercício 5 – Boas-vindas</h3>
+            <input type="text" id="nome-ex5" placeholder="Seu Nome">
+            <button onclick="boasVindasEx5()">Enviar</button>
+            <p id="msg-ex5"></p>
+        </div>
+
+        <div class="exercicio">
+            <h3>Exercício 6 – Cadastro com Ocultação</h3>
+            <div id="form-ex6">
+                <input type="text" id="nome-ex6" placeholder="Nome">
+                <input type="email" id="email-ex6" placeholder="E-mail">
+                <input type="password" id="senha-ex6" placeholder="Senha">
+                <button onclick="cadastrarEx6()">Cadastrar</button>
+            </div>
+            <p id="msg-ex6" class="hidden success">Cadastro realizado com
+                sucesso!</p>
+            <p id="erro-ex6" class="error"></p>
+        </div>
+
+        <div class="exercicio">
+            <h3>Exercício 7 – Área VIP</h3>
+            <input type="text" id="nome-ex7" placeholder="Seu Nome">
+            <button onclick="areaVipEx7()">Entrar</button>
+            <p id="erro-ex7" class="error"></p>
+            <img id="img-ex7" class="hidden"
+                src="https://via.placeholder.com/300x150/FFD700/000000?text=Bem-vindo+a+Area+VIP"
+                alt="VIP">
+        </div>
+
+        <div class="exercicio">
+            <h3>Exercício 8 – Área do Retângulo</h3>
+            <input type="number" id="base-ex8" placeholder="Base">
+            <input type="number" id="altura-ex8" placeholder="Altura">
+            <button onclick="calcularAreaEx8()">Calcular Área</button>
+            <p id="msg-ex8"></p>
+        </div>
+
+        <div class="exercicio">
+            <h3>Exercício 9 – Perfil do Jogador</h3>
+            <input type="text" id="nome-ex9" placeholder="Nome">
+            <input type="number" id="idade-ex9" placeholder="Idade">
+            <button onclick="criarPerfilEx9()">Criar Perfil</button>
+            <p id="msg-ex9"></p>
+        </div>
+
+        <div class="exercicio">
+            <h3>Exercício 10 – Banner Inteligente</h3>
+            <div id="banner-ex10"
+                style="background: #ffcc00; padding: 20px; text-align: center; margin-bottom: 10px;">
+                <strong>Oferta Especial!</strong>
+            </div>
+            <button
+                onclick="document.getElementById('banner-ex10').classList.add('hidden')">Ocultar
+                Banner</button>
+            <button
+                onclick="document.getElementById('banner-ex10').classList.remove('hidden')">Exibir
+                Banner</button>
+        </div>
+
+        <div class="exercicio">
+            <h3>Exercício 11 – IMC</h3>
+            <input type="number" id="peso-ex11" placeholder="Peso (kg)">
+            <input type="number" id="altura-ex11"
+                placeholder="Altura (m) ex: 1.75">
+            <button onclick="calcularImcEx11()">Calcular IMC</button>
+            <p id="msg-ex11"></p>
+        </div>
+
+        <div class="exercicio">
+            <h3>Exercício 12 – Convite</h3>
+            <input type="text" id="nome-ex12" placeholder="Nome do Convidado">
+            <button onclick="gerarConviteEx12()">Gerar Convite</button>
+            <p id="msg-ex12"></p>
+        </div>
+
+        <div class="exercicio">
+            <h3>Exercício 13 – Painel de Informações</h3>
+            <button onclick="mostrarInfoEx13(1)">Info 1</button>
+            <button onclick="mostrarInfoEx13(2)">Info 2</button>
+            <button onclick="mostrarInfoEx13(3)">Info 3</button>
+            <p id="info1-ex13" class="hidden">Primeiro parágrafo de
+                informação.</p>
+            <p id="info2-ex13" class="hidden">Segundo parágrafo de
+                informação.</p>
+            <p id="info3-ex13" class="hidden">Terceiro parágrafo de
+                informação.</p>
+        </div>
+
+        <div class="exercicio">
+            <h3>Exercício 14 – Compra de Produtos</h3>
+            <input type="text" id="produto-ex14" placeholder="Produto">
+            <input type="number" id="qtd-ex14" placeholder="Quantidade">
+            <input type="number" id="preco-ex14" placeholder="Preço Unitário">
+            <button onclick="comprarEx14()">Calcular Total</button>
+            <p id="msg-ex14"></p>
+        </div>
+
+        <div class="exercicio">
+            <h3>Exercício 15 – Resumo de Cadastro</h3>
+            <div id="form-ex15">
+                <input type="text" id="nome-ex15" placeholder="Nome">
+                <input type="email" id="email-ex15" placeholder="E-mail">
+                <input type="text" id="cidade-ex15" placeholder="Cidade">
+                <button onclick="finalizarEx15()">Finalizar</button>
+                <p id="erro-ex15" class="error"></p>
+            </div>
+            <div id="resumo-ex15" class="hidden success"></div>
+        </div>
+
+        <script src="script.js"></script>
+
+    </body>
+</html>
